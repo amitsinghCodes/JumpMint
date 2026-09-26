@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="JumpMint">
-  <rect width="64" height="64" rx="14" fill="#091715"/>
-  <polygon points="9,50 27,15 37,19 19,54" fill="#2fbf86"/>
-  <polygon points="27,15 37,19 55,39 45,45" fill="#69F4B5"/>
-  <polygon points="45,45 55,39 50,50 40,54" fill="#1f8f63"/>
-</svg>
