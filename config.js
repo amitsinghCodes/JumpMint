@@ -33,18 +33,23 @@ window.JUMPMINT_CONFIG = {
   // ---------------------------------------------------------------------
   apps: [
     {
-      // Rename to your game's real store name.
-      name: "Physics Platformer",
+      name: "Quantum Hop",
       description:
-        "A physics platformer with 50 levels across five worlds. Collect quanta, find the secret core hidden off the path in every level, and unlock a new science fact each time.",
+        "A puzzle platformer where a glowing particle splits into two quantum states, observes to collapse them, and tunnels through barriers. 50 levels across five worlds, from Quantum Beginnings to the Entangled Void, each with its own scenery and music. Find the hidden Core in every level and unlock one of 56 short, accurate quantum-physics facts. Plays offline, with no ads.",
       status: "testing",
-      screenshots: [],
+      screenshots: [
+        "brand/quantum-hop-2.jpg",
+        "brand/quantum-hop-1.jpg",
+        "brand/quantum-hop-3.jpg",
+        "brand/quantum-hop-4.jpg"
+      ],
       playStoreUrl: ""
     },
     {
-      name: "JumpMint Rally",
+      // Working title; the name may change before release.
+      name: "Alder Lake",
       description:
-        "An offline rally game built for touch controls. Gravel forest stages, medal target times, and races against AI drivers.",
+        "Run a highway hauling company. Send trucks from your depot to quarries, farms and factories, turn raw goods into steel, fuel and planks, and fill city contracts. Build new road segments to open six regions, from Harbor Gate to Airport Link. When a truck reaches a toll plaza, take control of the traffic in a quick puzzle to cut its trip time.",
       status: "development",
       screenshots: [],
       playStoreUrl: ""

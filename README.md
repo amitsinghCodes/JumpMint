@@ -40,8 +40,8 @@ Then open http://localhost:8000.
    email, the same one as your Play Console contact email.
 2. **Email in `config.js`.** Set `contactEmail` to the same address so it
    shows in the footer.
-3. **Game name.** In `config.js`, rename `"Physics Platformer"` to the game's
-   real store name.
+3. **Game names.** `config.js` lists Quantum Hop (in testing) and Alder Lake
+   (a working title, in development). Update them if a store name changes.
 4. **Check the privacy policy is true for your apps.** It states there are no
    ads, analytics, accounts, or automatic data sending, and that crash reports
    are sent only if the player chooses to email one. If an app ever adds
