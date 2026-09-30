@@ -15,6 +15,9 @@ privacy-policy.html   privacy policy (works without JavaScript)
 config.js             ALL editable content: apps, videos, links, email
 assets/site.css       styles
 assets/site.js        renders content from config.js, loads the 3D scene lazily
+assets/motion.js      site motion: hero intro, scroll reveals, progress bar,
+                      parallax, marquee, magnetic buttons, card tilt, counters,
+                      and the "Motion on/off" switch (remembered per browser)
 assets/hero3d.js      the 3D ribbon sculpture
 brand/mark.svg        favicon and small logo
 brand/ribbon.svg      symbol shown while the 3D scene loads, or if it can't run
@@ -149,7 +152,8 @@ Checked in headless Chromium at 1440, 1280, 1024, 820, 375 and 320 px wide:
 - With a filled-in config: the Google Play button, channel button, footer
   email and social links render; an invalid video URL and a `javascript:` link
   are rejected; pressing play swaps the thumbnail for the YouTube player.
-- Reduced-motion mode disables reveals.
+- Reduced-motion mode disables reveals and all decorative motion; the nav
+  "Motion" switch turns it off for everyone else and also pauses the 3D ribbon.
 - The 3D fallback path works: when three.js can't load, the static symbol
   stays and the controls stay hidden.
 - All scripts pass a JavaScript syntax check.

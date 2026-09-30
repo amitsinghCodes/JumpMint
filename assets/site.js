@@ -72,7 +72,7 @@
       const shots = (app.screenshots || []).filter(Boolean);
       const media = el("div", { class: "app-media" });
       if (shots.length) {
-        media.append(el("img", { src: shots[0], alt: app.name + " screenshot", loading: "lazy" }));
+        media.append(el("img", { src: shots[0], alt: app.name + " screenshot 1", loading: "lazy" }));
       } else {
         media.append(el("div", { class: "media-empty" },
           el("span", { "aria-hidden": "true", text: app.name.trim().charAt(0) }),
@@ -80,8 +80,21 @@
       }
       const mediaCol = el("div", {}, media);
       if (shots.length > 1) {
-        mediaCol.append(el("div", { class: "app-thumbs" },
-          shots.slice(1).map((s, i) => el("img", { src: s, alt: app.name + " screenshot " + (i + 2), loading: "lazy" }))));
+        // Every screenshot gets a thumbnail button that swaps it into the large frame.
+        const thumbs = el("div", { class: "app-thumbs" });
+        shots.forEach((s, i) => {
+          const b = el("button", {
+            type: "button", class: "thumb",
+            "aria-label": "Show " + app.name + " screenshot " + (i + 1),
+            "aria-pressed": String(i === 0)
+          }, el("img", { src: s, alt: "", loading: "lazy" }));
+          b.addEventListener("click", () => {
+            thumbs.querySelectorAll(".thumb").forEach((t) => t.setAttribute("aria-pressed", String(t === b)));
+            showShot(media, s, app.name + " screenshot " + (i + 1));
+          });
+          thumbs.append(b);
+        });
+        mediaCol.append(thumbs);
       }
 
       const status = STATUS[app.status] ? app.status : "development";
@@ -89,6 +102,14 @@
         el("span", { class: "status", "data-status": status, text: STATUS[status] }),
         el("h3", { text: app.name }),
         app.description ? el("p", { text: app.description }) : null);
+
+      const stats = (app.stats || []).filter((st) => st && Number.isFinite(st.value) && st.label);
+      if (stats.length) {
+        body.append(el("dl", { class: "stats" }, stats.map((st) =>
+          el("div", { class: "stat" },
+            el("dt", { text: st.label }),
+            el("dd", { "data-count": String(st.value), text: String(st.value) })))));
+      }
 
       const playUrl = safeUrl(app.playStoreUrl);
       if (playUrl) {
@@ -102,6 +123,20 @@
       }
       list.append(el("article", { class: "app reveal" }, mediaCol, body));
     });
+  }
+
+  // Crossfade a new screenshot over the current one.
+  function showShot(media, src, alt) {
+    const current = media.querySelector("img:last-of-type");
+    if (current && current.getAttribute("src") === src) return;
+    const img = el("img", { src: src, alt: alt, class: "shot-in" });
+    const done = () => {
+      media.querySelectorAll("img").forEach((n) => n !== img && n.remove());
+      img.classList.remove("shot-in");
+    };
+    img.addEventListener("animationend", done, { once: true });
+    media.append(img);
+    if (reduceMotion || document.documentElement.classList.contains("motion-off")) done();
   }
 
   // ---------- Watch ----------
@@ -170,14 +205,7 @@
   renderWatch();
   renderFooter();
 
-  // ---------- Reveals ----------
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("js-reveal");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    document.querySelectorAll(".reveal").forEach((n) => io.observe(n));
-  }
+  // Scroll reveals, hero intro and the rest of the motion live in assets/motion.js.
 
   // ---------- Lazy 3D hero ----------
   const scene = $("#hero-scene");

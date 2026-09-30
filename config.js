@@ -43,6 +43,12 @@ window.JUMPMINT_CONFIG = {
         "brand/quantum-hop-3.jpg",
         "brand/quantum-hop-4.jpg"
       ],
+      // Optional numbers shown under the description; they count up on scroll.
+      stats: [
+        { value: 50, label: "levels" },
+        { value: 5, label: "worlds" },
+        { value: 56, label: "quantum facts" }
+      ],
       playStoreUrl: ""
     },
     {
