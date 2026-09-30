@@ -22,7 +22,7 @@ window.JUMPMINT_CONFIG = {
   },
 
   // Email shown in the footer and used for contact links.
-  contactEmail: "",
+  contactEmail: "vasusr76@gmail.com",
 
   // ---------------------------------------------------------------------
   // Games & Apps
