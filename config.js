@@ -53,11 +53,12 @@ window.JUMPMINT_CONFIG = {
     },
     {
       // Working title; the name may change before release.
-      name: "Alder Lake",
+      name: "Haul & Harvest",
       description:
-        "Run a highway hauling company. Send trucks from your depot to quarries, farms and factories, turn raw goods into steel, fuel and planks, and fill city contracts. Build new road segments to open six regions, from Harbor Gate to Airport Link. When a truck reaches a toll plaza, take control of the traffic in a quick puzzle to cut its trip time.",
+        "Build a working transport company in Alder Vale. Collect stone, timber and grain, make goods in Depot Town, and deliver what your neighbours need. Two trucks, 45 story jobs and ten chapters connect the valley, from the first loading bench to the Alder crossing. A standalone Android game in development.",
       status: "development",
-      screenshots: [],
+      screenshots: ["brand/haul-vale.jpg", "brand/haul-town.jpg"],
+      stats: [{ value: 45, label: "story jobs" }, { value: 10, label: "chapters" }],
       playStoreUrl: ""
     }
   ],
