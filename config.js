@@ -60,6 +60,19 @@ window.JUMPMINT_CONFIG = {
       screenshots: ["brand/haul-vale.jpg", "brand/haul-town.jpg"],
       stats: [{ value: 45, label: "story jobs" }, { value: 10, label: "chapters" }],
       playStoreUrl: ""
+    },
+    {
+      name: "Nakshaa (नक्शा)",
+      description:
+        "Learn India's 28 states and 8 union territories on the official map. Tap the named state, match capitals, race your own ghost, guess the daily mystery state from its silhouette, and paint the map with family in pass-the-phone mode. English and Hindi, fully offline, no ads.",
+      status: "development",
+      screenshots: [],
+      stats: [
+        { value: 36, label: "states & UTs" },
+        { value: 9, label: "game modes" },
+        { value: 2, label: "languages" }
+      ],
+      playStoreUrl: ""
     }
   ],
 
